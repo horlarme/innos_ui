@@ -1,10 +1,10 @@
 import {Navigate, Outlet} from "react-router";
 import {useSessionQuery} from "../queries";
 
-export default function Auth() {
+export default function Guest() {
     const {error} = useSessionQuery()
 
-    if (error) return <Navigate to={'/login'}/>
+    if (!error) return <Navigate to={'/'}/>
 
     return <Outlet/>
 }
