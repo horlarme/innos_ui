@@ -17,10 +17,6 @@ export default function Register() {
         event.preventDefault()
         const formData = new FormData(event.target as HTMLFormElement)
 
-        for (const [key, value] of formData.entries()) {
-            console.log(key, value);
-        }
-
         _error(null)
 
         mutateAsync({
