@@ -3,5 +3,5 @@ interface Props {
 }
 
 export default function FormMessage(props: Props) {
-    return props.error ? <p className="text-xs text-error block">{props.error}</p> : null
+    return props.error ? <p className="text-xs text-red-600 block">{props.error}</p> : null
 }

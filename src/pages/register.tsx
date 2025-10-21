@@ -1,9 +1,10 @@
 import {Link, useNavigate} from "react-router";
-import {useRegistrationMutation, type IRegistrationData} from "../mutations/auth/register";
-import {twMerge} from "tailwind-merge";
+import {useRegistrationMutation, type IRegistrationData} from "../mutations";
 import {type FormEvent, useState} from "react";
 import {HTTPError} from "ky";
 import { FormMessage } from "../components";
+import {Button} from "primereact/button";
+import {InputText} from "primereact/inputtext";
 
 export default function Register() {
     const navigate = useNavigate()
@@ -44,25 +45,22 @@ export default function Register() {
             <div className="space-y-3 grid grid-cols-1">
                 <div className="space-y-1">
                     <label htmlFor={'name'} className="label block">Full Name</label>
-                    <input name={'name'} id={'name'} type="name" className={'input w-full'} placeholder={'Full Name'}/>
+                    <InputText name={'name'} id={'name'} type="name" className={'input w-full'} placeholder={'Full Name'}/>
                     <FormMessage error={error?.errors?.name} />
                 </div>
                 <div className="space-y-1">
                     <label className="label block" htmlFor={'email'}>Email Address</label>
-                    <input id={'email'} name={'email'} type="email" className={'input w-full'} placeholder={'Email Address'}/>
+                    <InputText id={'email'} name={'email'} type="email" className={'input w-full'} placeholder={'Email Address'}/>
                     <FormMessage error={error?.errors?.email} />
                 </div>
                 <div className="space-y-1">
                     <label className="label block" htmlFor={'password'}>Password</label>
-                    <input id={'password'} name={'password'} type="password" className={'input w-full'} placeholder={'Password'}/>
+                    <InputText id={'password'} name={'password'} type="password" className={'input w-full'} placeholder={'Password'}/>
                     <FormMessage error={error?.errors?.password} />
                 </div>
 
-                <button className={twMerge("btn btn-block btn-primary", isPending && "btn-disabled")}>
-                    {isPending ? <span className="loading loading-spinner"/> : null}
-                    Register
-                </button>
-                <p className="text-muted">
+                <Button label={'Register'} loading={isPending}/>
+                <p className="text-muted mt-2">
                     Already have an account?&nbsp;
                     <Link className={'btn-link font-bold'} to={'/login'}>Login</Link>
                 </p>
