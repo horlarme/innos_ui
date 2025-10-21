@@ -6,6 +6,12 @@ export const api = ky.create({
     retry: 0,
     headers: {
         'Accept': 'application/json',
-        'Authorization': `Bearer ${localStorage.getItem(AuthStorageKey)}`
+    },
+    hooks: {
+        beforeRequest: [
+            (request) => {
+                request.headers.set('Authorization', `Bearer ${localStorage.getItem(AuthStorageKey)}`)
+            }
+        ]
     }
 })

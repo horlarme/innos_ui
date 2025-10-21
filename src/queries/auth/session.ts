@@ -1,5 +1,5 @@
 import {useQuery} from "@tanstack/react-query";
-import {api} from "../../utils/api.ts";
+import {api} from "../../utils/api";
 
 export function useSessionQuery(){
     return useQuery({

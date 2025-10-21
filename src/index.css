@@ -1,6 +1,11 @@
 @import "tailwindcss";
-@plugin "daisyui" {
-    themes: light --default;
-    root: ":root";
-    logs: true;
+
+@import 'primereact/resources/themes/lara-light-indigo/theme.css';
+@import 'primereact/resources/primereact.min.css';
+@import 'primeicons/primeicons.css';
+
+@layer primereact{
+    .p-inputwrapper-filled.p-multiselect.p-multiselect-chip .p-multiselect-label{
+        overflow-x: auto;
+    }
 }

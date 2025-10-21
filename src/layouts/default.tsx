@@ -13,17 +13,19 @@ export default function DefaultLayout() {
         queryClient.resetQueries({queryKey: ['Session']})
     }
 
-    return <div className={'container mx-auto'}>
+    return <div className={'container mx-auto overflow-x-hidden'}>
         <div className="w-full p-4 flex items-center group gap-x-2">
-            <img src={Logo} className={'group-hover:animate-spin'} alt={'Logo'}/>
+            <Link to={'/'}>
+                <img src={Logo} className={'group-hover:animate-spin'} alt={'Logo'}/>
+            </Link>
             <div className="flex-1"/>
             {error ? <>
-                    <Link to={'/login'} className="btn btn-outline btn-sm">Login</Link>
-                    <Link to={'/register'} className="btn btn-primary btn-sm">Register</Link>
+                    <Link to={'/login'} className="p-button">Login</Link>
+                    <Link to={'/register'} className="p-button p-button-secondary">Register</Link>
                 </> :
                 <>
-                    <Link to={'/preference'} className="btn btn-link btn-sm">Settings</Link>
-                    <button onClick={logout} type={'button'} className="btn btn-link btn-sm">Logout</button>
+                    <Link to={'/feed'} className="p-button p-button p-button-outlined">Feed</Link>
+                    <button onClick={logout} type={'button'} className="p-button p-button-outlined">Logout</button>
                 </>}
         </div>
         <Outlet/>
