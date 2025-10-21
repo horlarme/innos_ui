@@ -1,0 +1,7 @@
+services:
+
+  app:
+    restart: "unless-stopped"
+    build:
+      context: .
+      target: server

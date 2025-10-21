@@ -1,5 +1,5 @@
 import {useMutation} from "@tanstack/react-query";
-import {api} from "../../utils/api.ts";
+import {api} from "../../utils/api";
 import {AuthStorageKey} from "../../constants";
 
 export interface IRegistrationData {
